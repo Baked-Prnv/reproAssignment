@@ -22,10 +22,10 @@ class Booking(models.Model):
     room_id = models.ForeignKey(Rooms, on_delete=models.CASCADE)
     check_in = models.DateField()
     check_out = models.DateField()
-    guest_name = models.CharField(max_length=50)
+    guest_name = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
-        return f"You've a booking for {self.room_id.room_no} from {self.check_in} to {self.check_out}"
+        return f"For booking id: {self.id} you've {self.room_id.room_no} from {self.check_in} to {self.check_out}"
 
 
 class UnavailableRoom(models.Model):
